@@ -2,21 +2,18 @@
 	<head>
 		<title>Blog Testowy dla logopedy</title>
 	</head>
+
 	<body>
 		<div>
 			<h1><a href="">Blog testowy logopedia</a></h1>
 		</div>
 
-		<div>
-			<p>published: 04-03-2016</p>
-			<h2><a href="">Pierwszy post</a></h2>
-			<p>peewee is another ORM with a focus on being lightweight with support for Python 2.6+ and 3.2+ which supports SQLite, MySQL and Postgres by default. The model layer is similar to that of the Django ORM and it has SQL-like methods to query data. While SQLite, MySQL and Postgres are supported out-of-the-box, there is a collection of add-ons available.</p>
-		</div>
-
-		<div>
-			<p>published: 04-03-2016</p>
-			<h2><a href="">Drugi post</a></h2>
-			<p>peewee is another ORM with a focus on being lightweight with support for Python 2.6+ and 3.2+ which supports SQLite, MySQL and Postgres by default. The model layer is similar to that of the Django ORM and it has SQL-like methods to query data. While SQLite, MySQL and Postgres are supported out-of-the-box, there is a collection of add-ons available.</p>
-		</div>
+		{% for post in posts %}
+			<div>
+				<p>published: {{ post.published_date }}</p>
+				<h1><a href="">{{ post.title}}</a></h1>
+				<p>{{ post.text|linebreaks }}</p>
+			</div>
+		{% endfor %}
 	</body>
 </html>
